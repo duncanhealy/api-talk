@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.2",
+  "info": { "title": "DNO API v0.11.3", "version": "0.11.3" },
+  "servers": [
+    {
+      "url": "https://{subdomain}-{version}.domain.com/graphql/",
+      "description": "API SPEC v0.11.3",
+      "variables": {
+        "subdomain": { "default": "app" },
+        "version": {
+          "enum": ["v1", "v0.11.3"],
+          "default": "v0.11.3",
+          "description": "version 0.11.3"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "description": "",
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/test" }
+              }
+            }
+          }
+        }
+      }
+    },    
+    "/test/{ticker}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ticker for voldata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/test" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [{ "api_key": [] }, { "UserSecurity": [] }],
+  "components": {
+    "responses": {
+      "200": {
+        "description": "",
+        "content": { "application/json": { "schema": {} } }
+      },
+      "403": {
+        "description": "",
+        "content": { "application/json": { "schema": {} } }
+      },
+      "404": {
+        "description": "not found",
+        "content": { "application/json": { "schema": {} } }
+      },
+      "default": {
+        "description": "unexpected error",
+        "content": { "application/json": { "schema": {} } }
+      }
+    },
+    "parameters": {
+      "year": {
+        "name": "choice",
+        "in": "path",
+        "required": true,
+        "description": "year",
+        "schema": { "type": "string" }
+      },
+      "choice": {
+        "name": "choice",
+        "in": "path",
+        "required": true,
+        "description": "premium or limit",
+        "schema": { "type": "string" }
+      },
+      "date_to": {
+        "name": "date_to",
+        "in": "query",
+        "required": true,
+        "description": "date end",
+        "schema": { "type": "string" }
+      },
+      "date_from": {
+        "name": "date_from",
+        "in": "query",
+        "required": true,
+        "description": "date start",
+        "schema": { "type": "string" }
+      },
+      "api_key": {
+        "name": "api_key",
+        "in": "header",
+        "required": true,
+        "description": "api key for auth",
+        "schema": { "type": "string" }
+      },
+      "ticker": {
+        "name": "ticker",
+        "in": "query",
+        "required": true,
+        "description": "ticker symbol",
+        "schema": { "type": "string", "format": "" }
+      },
+      "searchkey": {
+        "name": "searchkey",
+        "in": "path",
+        "required": true,
+        "description": "key to search on - {key: 'value'}",
+        "schema": { "type": "string", "format": "" }
+      }
+    },
+    "securitySchemes": {
+      "UserSecurity": { "type": "http", "scheme": "basic" },
+      "api_key": { "type": "http", "scheme": "bearer", "bearerFormat": "TOKEN" }
+    },
+    "schemas": {
+      "test": {
+        "title": "Test Fundamentals",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": { "type": "string" },
+                "ticker": { "type": "string" },
+                "date": { "type": "string" },
+                "key": { "type": "string" },
+                "value": { "type": "number" }
+              },
+              "required": ["source", "ticker", "date", "key", "value"]
+            }
+          }
+        }
+      }
+    }
+  }
+}
