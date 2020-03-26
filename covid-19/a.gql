@@ -1,0 +1,14 @@
+{
+  countries{
+    cases
+    deaths
+    active
+    country
+    critical
+		todayCases
+    todayDeaths
+    casesPerOneMillion
+    todayCases
+    recovered
+  }
+}
