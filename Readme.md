@@ -1,4 +1,4 @@
-# Api Talk for Dogpatch 10th March 2020
+# Api Talk for Dogpatch 26th March 2020
 
 
 
@@ -119,6 +119,9 @@ Insure performance meets x
 
 ## Deployment Targets
 
+- mono repo
+
+- [rush](https://github.com/microsoft/rushstack/)
 
 ## Cloud Providers
 
@@ -138,7 +141,9 @@ Insure performance meets x
 - [cowboy_rest]
 - [express](https://gist.github.com/mdang/0a8e00883b2e25424e05)
 
+## Monitioring
 
+- [monitoring mean](https://dev.to/moesif/what-does-api-monitoring-mean-for-api-product-managers-and-growth-teams-gfj)
 
 ## Version
 
@@ -148,13 +153,14 @@ Insure performance meets x
 
 ## Examples
 
-https://shopify.dev/docs/storefront-api/reference
+- [Shopify api](https://shopify.dev/docs/storefront-api/reference)
 
-https://developer.github.com/v4/explorer/
+- [github api](https://developer.github.com/v4/explorer/)
 
 ## Spec
 
 ![openapispec](openapispec.png)
+
 
 ## Generate demo
 
@@ -167,3 +173,15 @@ https://developer.github.com/v4/explorer/
                 -o /local/out/typescript-rxjs
 
 ```
+
+
+
+## Links
+
+
+- [api guru](https://apis.guru/awesome-openapi3/category.html)
+
+- [What developers mean when they say "API" - DEV Community 👩‍💻👨‍💻
+](https://blog.bearer.sh/what-is-an-api/)
+
+- [7 apis u did not know you needed](https://www.twilio.com/blog/cool-apis)
